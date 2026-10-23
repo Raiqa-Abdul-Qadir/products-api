@@ -13,6 +13,10 @@ public class ProductService {
     private Map<Long, Product> products = new HashMap<>();
     private Long nextId = 1L;
 
+    public ProductService() {
+        addProduct(new DigitalProduct(null, "Clean Code (E-book)", 29.99, "/downloads/clean-code.pdf", 4.2));
+        addProduct(new PhysicalProduct(null, "27-inch Monitor", 249.99, 5.4, "61cm x 41cm x 18cm"));
+    }
 
     public List<Product> getAllProducts() {
 
