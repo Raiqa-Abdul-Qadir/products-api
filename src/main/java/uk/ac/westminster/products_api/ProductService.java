@@ -16,6 +16,7 @@ public class ProductService {
     public ProductService() {
         addProduct(new DigitalProduct(null, "Clean Code (E-book)", 29.99, "/downloads/clean-code.pdf", 4.2));
         addProduct(new PhysicalProduct(null, "27-inch Monitor", 249.99, 5.4, "61cm x 41cm x 18cm"));
+        addProduct(new BundleProduct(null, "Developer Bundle", 259.99, List.of(new DigitalProduct(null, "Clean Code (E-book)", 29.99, "/downloads/clean-code.pdf", 4.2), new PhysicalProduct(null, "27-inch Monitor", 249.99, 5.4, "61cm x 41cm x 18cm"))));
     }
 
     public List<Product> getAllProducts() {

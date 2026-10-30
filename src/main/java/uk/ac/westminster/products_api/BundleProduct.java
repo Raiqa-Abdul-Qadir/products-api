@@ -21,7 +21,7 @@ public class BundleProduct extends Product {
 
     @Override
     public String getSummary() {
-        return "Bundle: " + getName() + " | Items: " + items.size();
+        return "Bundle : " + getName() + " | Items : " + items.size();
     }
 
 }
