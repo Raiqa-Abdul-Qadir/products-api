@@ -22,8 +22,9 @@ public class ProductController {
         return productService.getProductById(id).orElse(null);
     }
 
+    // Temporary: Jackson can not build an abstract Product from JSON, so use a concrete subclass
     @PostMapping("/products")
-    public Product addProduct(@RequestBody Product product) {
+    public Product addProduct(@RequestBody DigitalProduct product) {
         return productService.addProduct(product);
     }
 
@@ -39,4 +40,9 @@ public class ProductController {
 
     @GetMapping("/products/cheaper-than")
     public List<Product> getCheaperThan(@RequestParam double price) { return productService.findCheaperThan(price); }
+
+    @GetMapping("/products/summaries")
+    public List<String> getSummaries() {
+        return productService.getAllSummaries();
+    }
 }

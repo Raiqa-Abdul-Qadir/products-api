@@ -2,7 +2,9 @@
 // A ShoppingCart would not pass this test because it HAS-A list of Products rather than being a product itself.
 package uk.ac.westminster.products_api;
 
-public class PhysicalProduct extends Product {
+public class PhysicalProduct extends Product implements Discountable {
+
+    private double discountedPrice;
 
     private double weightKg;
     private String dimensions;
@@ -13,6 +15,7 @@ public class PhysicalProduct extends Product {
         super(id, name, price);
         this.weightKg = weightKg;
         this.dimensions = dimensions;
+        this.discountedPrice = price;
     }
 
     public double getWeightKg() {
@@ -21,5 +24,21 @@ public class PhysicalProduct extends Product {
 
     public String getDimensions() {
         return dimensions;
+    }
+
+    @Override
+    public String getSummary() {
+        return "Physical: " + getName() + " | Weight: " + weightKg;
+    }
+
+    @Override
+    public void applyDiscount(double rate) {
+        double capped = Math.min(rate, 0.20);
+        this.discountedPrice = getPrice() * (1 - capped);
+    }
+
+    @Override
+    public double getDiscountedPrice() {
+        return discountedPrice;
     }
 }

@@ -45,4 +45,14 @@ public class ProductService {
         return products.values().stream().filter(p -> p.getPrice() < price).toList();
     }
 
+    public List<String> getAllSummaries() {
+
+        List<String> summaries = new ArrayList<>();
+
+        for (Product p : products.values()) {
+            summaries.add(p.getSummary());
+        }
+        return summaries;
+    }
+
 }

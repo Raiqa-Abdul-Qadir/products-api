@@ -19,4 +19,9 @@ public class BundleProduct extends Product {
         return items;
     }
 
+    @Override
+    public String getSummary() {
+        return "Bundle: " + getName() + " | Items: " + items.size();
+    }
+
 }
